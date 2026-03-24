@@ -15,3 +15,4 @@ RUN uv python install 3.10
 
 WORKDIR /tdd
 COPY AGENTS.md /tdd/AGENTS.md
+COPY pocket /tdd/pocket
