@@ -16,4 +16,5 @@ uv run ov admin register-user default shawoo --role user
   "echo_command": true
 }
 
+uv run ov tree viking://
 ```
