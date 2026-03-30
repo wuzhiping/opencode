@@ -1,0 +1,12 @@
+FROM node:24-slim
+
+# curl
+
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+
+ENV PATH="/root/.local/bin:$PATH"
+
+RUN uv python install
+RUN uv python install 3.11
+
+RUN npm i -g -U opencode-ai
