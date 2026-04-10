@@ -9,4 +9,4 @@ RUN uv pip install markitdown[pptx]
 
 RUN bun x degit github:wuzhiping/opencode/pocket pocket
 
-# bun x degit github:wuzhiping/skills/pptx-generator pptx-generator --force
+# bun x degit github:wuzhiping/skills/pptx-generator ~/.config/opencode/skills/pptx-generator --force
