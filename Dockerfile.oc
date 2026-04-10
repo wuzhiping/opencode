@@ -1,7 +1,7 @@
 FROM node:24-slim
 
 RUN apt-get update && \
-    apt-get install -y redis-server  vim supervisor wget curl netcat-openbsd unzip && \
+    apt-get install -y redis-server  vim supervisor wget curl netcat-openbsd unzip git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -15,6 +15,20 @@ RUN uv python install 3.11
 RUN npm i -g -U opencode-ai
 
 RUN npx oh-my-opencode install --no-tui --claude=no --openai=no --gemini=no --copilot=no
+
+
+RUN npm install -g @gitlawb/openclaude
+
+ENV CLAUDE_CODE_USE_OPENAI=1
+ENV OPENAI_API_KEY=sk-abc
+ENV OPENAI_BASE_URL=http://litellm.feg.cn/v1
+ENV OPENAI_MODEL=qwen3.5:27b
+
+RUN openclaude --version
+
+RUN curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+# docker run -it --rm   -v ~/.hermes:/opt/data   nousresearch/hermes-agent setup
+# docker run -it --rm   -v ~/.hermes:/opt/data   nousresearch/hermes-agent
 
 WORKDIR /tdd
 COPY AGENTS.md /tdd/AGENTS.md
