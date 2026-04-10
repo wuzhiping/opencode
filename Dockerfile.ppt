@@ -1,0 +1,12 @@
+FROM shawoo/opencode
+
+RUN bun init -y
+RUN bun add pptxgenjs react-icons react react-dom sharp
+
+RUN uv init --python 3.11 .
+RUN uv venv
+RUN uv pip install markitdown[pptx]
+
+RUN bun x degit github:wuzhiping/opencode/pocket pocket
+
+# bun x degit github:wuzhiping/skills/pptx-generator pptx-generator --force
