@@ -32,4 +32,5 @@ hermes gateway
 ```
 
 # skills
+* npx degit github:wuzhiping/skills/pptx-generator ~/.hermes/skills/pptx-generator --force
 * ls ~/.hermes/skills/
