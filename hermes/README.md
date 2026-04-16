@@ -16,3 +16,6 @@
 
 # cli
 * hermes chat --skills llm-wiki --quiet -q "我有哪些知识库"
+
+# api
+* https://hermes-agent.nousresearch.com/docs/user-guide/features/api-server
