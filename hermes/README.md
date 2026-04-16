@@ -26,6 +26,8 @@ API_SERVER_HOST=0.0.0.0
 API_SERVER_PORT=8642
 API_SERVER_KEY=change-me
 API_SERVER_CORS_ORIGINS=http://localhost:8642,http://10.17.1.26:3888
+
+hermes gateway
 ```
 
 # skills
