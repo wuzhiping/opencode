@@ -9,3 +9,10 @@
 
 # dashboard
 * docker exec -it hermes bash -c 'source "/opt/hermes/.venv/bin/activate" && hermes dashboard --host 0.0.0.0 --port 9119  --insecure'
+
+# backup and restore
+* hermes backup -o /home/gem/.openclaw/hermes-backup-$(date +%y%m%d-%H%M%S).zip
+* hermes import hermes-backup-260416-132905.zip
+
+# cli
+* hermes chat --skills llm-wiki --quiet -q "我有哪些知识库"
