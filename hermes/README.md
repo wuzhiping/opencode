@@ -19,3 +19,14 @@
 
 # api
 * https://hermes-agent.nousresearch.com/docs/user-guide/features/api-server
+```
+vi ~/.hermes/.env
+API_SERVER_ENABLED=true
+API_SERVER_HOST=0.0.0.0
+API_SERVER_PORT=8642
+API_SERVER_KEY=change-me
+API_SERVER_CORS_ORIGINS=http://localhost:8642,http://10.17.1.26:3888
+```
+
+# skills
+* ls ~/.hermes/skills/
