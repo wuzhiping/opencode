@@ -15,6 +15,7 @@
 * hermes import hermes-backup-260416-132905.zip
 
 # cli
+* https://hermes-agent.nousresearch.com/docs/user-guide/cli
 * hermes chat --skills llm-wiki --quiet -q "我有哪些知识库"
 
 # api
