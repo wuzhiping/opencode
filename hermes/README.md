@@ -34,6 +34,49 @@ API_SERVER_CORS_ORIGINS=http://localhost:8642,http://10.17.1.26:3888
 hermes gateway
 ```
 
+# profile
+```
+# Create a profile per user
+hermes profile create alice
+hermes profile create bob
+
+# Configure each profile's API server on a different port
+hermes -p alice config set API_SERVER_ENABLED true
+hermes -p alice config set API_SERVER_PORT 8643
+hermes -p alice config set API_SERVER_KEY alice-secret
+
+hermes -p bob config set API_SERVER_ENABLED true
+hermes -p bob config set API_SERVER_PORT 8644
+hermes -p bob config set API_SERVER_KEY bob-secret
+
+# Start each profile's gateway
+hermes -p alice gateway &
+hermes -p bob gateway &
+```
+1. 列出所有profile
+
+hermes profile list 
+
+2. 创建profile。` --clone` 参数会从当前配置文件复制 config、 .env 和 SOUL.md 文件。
+
+hermes profile create demo --clone
+
+3. 设置默认profile为demo
+
+hermes profile use demo
+
+4. 显示配置文件详细信息（主目录、配置等）
+
+hermes profile show demo
+
+hermes profile show default
+
+5. `--profile` 选择本次调用要使用的 Hermes 配置文件(`default` profile中有 `infographic-creator`这个skill)
+
+hermes --profile demo chat -Q -q '我有infographic-creator这个skills吗'
+
+hermes --profile default chat -Q -q '我有infographic-creator这个skills吗'
+
 # skills
 * npx degit github:wuzhiping/skills/pptx-generator ~/.hermes/skills/pptx-generator --force
 * ls ~/.hermes/skills/
