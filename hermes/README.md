@@ -80,3 +80,36 @@ hermes --profile default chat -Q -q '我有infographic-creator这个skills吗'
 # skills
 * npx degit github:wuzhiping/skills/pptx-generator ~/.hermes/skills/pptx-generator --force
 * ls ~/.hermes/skills/
+
+# code
+```
+# pip install -q aiohttp
+
+import json
+import aiohttp
+index = 0
+url = "http://10.17.1.26:8642/v1/responses"
+async with aiohttp.ClientSession() as session:
+  async with session.post(
+    url,
+    headers = {
+    "Authorization":"Bearer change-me",
+    "Content-Type": "application/json"
+    },
+    json={
+    "model": "hermes-agent",
+    "input": "你有哪些skills",
+    "instructions": "结尾加上【好的哦，亲】",
+    "stream": True,
+    "conversation":"demo4",
+    },
+    ssl=False) as resp:
+    async for line in resp.content:
+      line = line.decode('utf-8').strip()
+      if line.startswith('data'):
+          try:
+            content = json.loads(line[5:])
+            print(content)
+          except Exception as e:
+            pass
+```
