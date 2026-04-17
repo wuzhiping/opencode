@@ -89,7 +89,8 @@ import json
 import aiohttp
 index = 0
 url = "http://10.17.1.26:8642/v1/responses"
-async with aiohttp.ClientSession() as session:
+# async with aiohttp.ClientSession() as session:
+async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=1800, connect=10)) as session:   
   async with session.post(
     url,
     headers = {
