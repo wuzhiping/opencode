@@ -12,3 +12,9 @@ docker run --pull always \
            --agent build \
            "你有什么技能"
 ```
+
+
+# https://github.com/microsoft/markitdown
+```
+docker run --name markitdown -it -d -v $PWD/worker:/workspace -p 18001:8888 shawoo/markitdown
+```
